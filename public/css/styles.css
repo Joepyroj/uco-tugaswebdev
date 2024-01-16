@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+
+header {
+    color: #630bf1;
+    padding: 10px;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+.company-name {
+    margin: 0; /* Hapus margin default pada nama perusahaan */
+}
+
+
+main {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #9c6bf1;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+button:first-child {
+    margin-right: 40px;
+}
+
+button:last-child {
+    margin-left: 40px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}

@@ -12,7 +12,7 @@
     <header>
         <div>
             <img src="/path/to/logo.png" alt="Logo Perusahaan" class="logo">
-            <h1 class="company-name">Nama Perusahaan</h1>
+            <h1 class="company-name">Job Tracking Website</h1>
         </div>
     </header>
     <main>
@@ -20,7 +20,7 @@
             officiis aut, consequatur cumque autem laudantium atque fuga, omnis sed nisi placeat vel blanditiis dolorem
             eum?</p>
         <div class="button-container">
-            <a href="#"><button>Login</button></a>
+            <a href="{{ route('login') }}"><button>Login</button></a>
             <a href="{{ route('register') }}"><button>Register</button></a>
         </div>
     </main>

@@ -5,7 +5,10 @@ use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\AddJobController;
+use App\Http\Controllers\AllJobsController;
+use App\Http\Controllers\StatsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +33,13 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
+Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
+    Route::get('/all-jobs', [AllJobsController::class, 'index'])->name('all-jobs');
+    Route::get('/stats', [StatsController::class, 'index'])->name('stats');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/add-job', [AddJobController::class, 'store']);
 });

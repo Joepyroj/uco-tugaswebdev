@@ -1,4 +1,5 @@
 <?php
+// app/Http/Controllers/ProfileController.php
 
 namespace App\Http\Controllers;
 
@@ -8,8 +9,23 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('pages.profile');
+        $user = auth()->user();
+        return view('pages.profile', compact('user'));
     }
 
-    // Add other methods as needed
+    public function updateName(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+        ]);
+
+        $user = auth()->user();
+        $user->update([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+        ]);
+
+        return redirect()->route('profile')->with('success', 'Name updated successfully!');
+    }
 }

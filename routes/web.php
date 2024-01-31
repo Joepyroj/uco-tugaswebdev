@@ -9,6 +9,7 @@ use App\Http\Controllers\AddJobController;
 use App\Http\Controllers\AllJobsController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +36,20 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
 
+
+Route::get('/contact', [ContactUsController::class, 'index'])->name('contact');
+Route::post('/contact/send', [ContactUsController::class, 'sendEmail'])->name('contact.send');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
-    Route::get('/all-jobs', [AllJobsController::class, 'index'])->name('all-jobs');
     Route::get('/stats', [StatsController::class, 'index'])->name('stats');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/add-job', [AddJobController::class, 'store']);
+    Route::get('/all-jobs', [AllJobsController::class, 'index'])->name('all-jobs');
+    Route::get('/all-jobs/{job}/edit', [AllJobsController::class, 'edit'])->name('edit-job');
+    Route::put('/all-jobs/{job}', [AllJobsController::class, 'update'])->name('update-job');
+    Route::delete('/all-jobs/{job}', [AllJobsController::class, 'destroy'])->name('delete-job');
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/profile/update-name', [ProfileController::class, 'updateName'])->name('update-name');
 });

@@ -33,6 +33,16 @@
                                 <label for="job_description">Job Description:</label>
                                 <textarea class="form-control" id="job_description" name="job_description" rows="3" required></textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select class="form-control" id="status" name="status" required>
+                                    <option value="saved">Saved</option>
+                                    <option value="applied">Applied</option>
+                                    <option value="interview">Interview</option>
+                                    <option value="offered">Offered</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary">Add Job</button>
                         </form>
                     </div>

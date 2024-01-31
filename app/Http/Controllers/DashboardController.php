@@ -3,10 +3,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Models\Job;
+
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard'); // Create a dashboard.blade.php file in the "resources/views" directory
+        $jobCounts = Job::getCountsByStatus();
+
+        return view('dashboard', compact('jobCounts'));
     }
 }

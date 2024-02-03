@@ -33,9 +33,12 @@
                 <label for="password">Password:</label>
                 <input type="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <div class="b">
+                <button type="submit">Login</button>
+                <p>Not a member? <a href="{{ route('register.form') }}">Register</a></p>
+            </div>
         </form>
-        <p>Not a member? <a href="{{ route('register.form') }}">Register</a></p>
+
     </main>
 </body>
 

@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyfoRS3DPcUDAdcbhjxu7xjBteqRD1"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}">
+
     <title>Register</title>
 </head>
 
@@ -17,8 +16,8 @@
     <main class="container mt-4">
         <form action="{{ route('register') }}" method="POST" class="border p-4 bg-white">
             @csrf
-            <img src="/path/to/logo.png" alt="Logo Perusahaan" class="img-fluid">
-            <h1 class="mt-4">Nama Perusahaan</h1>
+            <img src="company.png" alt="Logo Perusahaan" class="img-fluid logo">
+            <h1 class="mt-4">Jobify</h1>
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" name="name" class="form-control" required>
@@ -41,7 +40,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <p class="mt-3">Already a member? <a href="#">Login</a></p>
+        <p class="mt-3">Already a member? <a href="{{ route('login') }}">Login</a></p>
     </main>
 
     <!-- Bootstrap JS and jQuery (make sure to include them if needed) -->

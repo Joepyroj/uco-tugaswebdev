@@ -3,6 +3,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <x-navbar />
+
     <div class="container mt-4">
         <h2>Contact Us</h2>
 

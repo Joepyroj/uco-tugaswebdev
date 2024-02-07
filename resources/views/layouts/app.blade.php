@@ -6,11 +6,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {{-- <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"> --}}
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .custom-pagination .pagination li:first-child,
+        .custom-pagination .pagination li:last-child {
+            display: none;
+        }
+
+        .custom-pagination .pagination li a {
+            font-size: 14px; /* Adjust the font size as needed */
+            padding: 0.25rem 0.5rem; /* Adjust padding as needed */
+        }
+    </style>
+
     <title>Dashboard</title>
 </head>
+
 
 <body>
     @yield('content')

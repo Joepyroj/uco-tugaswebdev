@@ -10,7 +10,8 @@ class AllJobsController extends Controller
 {
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = Job::orderBy('created_at', 'asc')->simplePaginate(12);
+
         return view('pages.all-jobs', compact('jobs'));
     }
 

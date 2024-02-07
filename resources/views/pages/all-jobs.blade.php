@@ -1,6 +1,3 @@
-<!-- resources/views/components/all-jobs.blade.php -->
-<!-- resources/views/pages/all-jobs.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -21,6 +18,8 @@
                             <h5 class="card-title">{{ $job->job_title }}</h5>
                             <p class="card-text">{{ $job->company_name }}</p>
                             <p class="card-text">{{ $job->location }}</p>
+                            <p class="card-text">Status: {{ $job->status }}</p> <!-- Assuming 'status' is the field in your Job model -->
+
                             <form action="{{ route('delete-job', $job) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -31,6 +30,10 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+
+        <div class="mt-4 custom-pagination"  style="font-size: 14px;">
+            {{ $jobs->links() }}
         </div>
     </div>
 @endsection

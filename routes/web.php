@@ -10,6 +10,8 @@ use App\Http\Controllers\AllJobsController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,14 +35,15 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
+// Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
 
 
-Route::get('/contact', [ContactUsController::class, 'index'])->name('contact');
-Route::post('/contact/send', [ContactUsController::class, 'sendEmail'])->name('contact.send');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('admin');
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/add-job', [AddJobController::class, 'index'])->name('add-job');
     Route::get('/stats', [StatsController::class, 'index'])->name('stats');
@@ -50,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/all-jobs/{job}', [AllJobsController::class, 'update'])->name('update-job');
     Route::delete('/all-jobs/{job}', [AllJobsController::class, 'destroy'])->name('delete-job');
 
+    Route::get('/contact', [ContactUsController::class, 'index'])->name('contact');
+    Route::post('/contact/send', [ContactUsController::class, 'sendEmail'])->name('contact.send');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile/update-name', [ProfileController::class, 'updateName'])->name('update-name');
 });
